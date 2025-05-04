@@ -1,6 +1,6 @@
 # Obsidian Backup - External Courses
 
-**This repository contains my notes, highlights, and other learning materials specifically for courses I've taken that are external to Google.**
+**This repository contains my notes, highlights, and other learning materials specifically for courses I've taken on my personal time.**
 
 This includes, but is not limited to, content from the following platforms:
 
