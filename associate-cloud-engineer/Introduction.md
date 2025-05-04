@@ -1,4 +1,3 @@
-
 **Cloud Computing** - way of using IT has 5 traits
 
 > customers get computing resources that are on-demand and self-service.
