@@ -1,0 +1,3 @@
+- Containers package code and dependencies in an isolated environment, virtualizing the OS for portability across different environments.
+- Compared to VMs, containers are lightweight, start quickly, and enable rapid scaling of applications on a single host.
+- Containers facilitate building modular microservices that can be deployed and scaled independently across multiple hosts based on demand and failures.
