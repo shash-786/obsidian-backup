@@ -1,7 +1,7 @@
 ```python
 count = {"a": 1, "b": 2, "c": 3}
 for key in count:
-	print(key) # a b c
+	print(key) # a b c d
 
 for key, val in count.items():
 	print(key, val) # a 1 b 2 c 3
