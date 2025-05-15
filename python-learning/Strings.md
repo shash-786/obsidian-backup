@@ -1,6 +1,6 @@
 Python strings are "immutable" which means they cannot be changed after they are created (Java strings also use this immutable style). Since strings can't be changed, we construct *new* strings as we go to represent computed values. So for example the expression ('hello' + 'there') takes in the 2 strings 'hello' and 'there' and builds a new string 'hellothere'.
 
-```
+```python
 x : str = r'x\nx'
 print(str) 
 
