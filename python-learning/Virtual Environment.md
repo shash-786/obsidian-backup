@@ -9,7 +9,7 @@ source ./venv/bin/activate
 # deactivate
 deactivate
 ```
-Once the virtual environment is active any packages installed will be installed in the virtual environment rather than in the global python environment. This allows you to separate set of packages for each project without it affecting the packages installed in the global environment.
+Once the virtual ***environment*** is active any packages installed will be installed in the virtual environment rather than in the global python environment. This allows you to separate set of packages for each project without it affecting the packages installed in the global environment.
 
 ### Requirements.txt
 
