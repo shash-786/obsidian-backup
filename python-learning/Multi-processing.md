@@ -39,14 +39,36 @@ The following are some of the most commonly used functions in the multiprocessin
 
 Creating a pool of worker processes is a common approach to using multiprocessing in Python. The idea is to create a pool of worker processes and then assign tasks to them as needed. This allows you to take advantage of multiple CPU cores and process tasks in parallel.
 
-`   from multiprocessing import Pool  def process_task(task):      # Do some work here      print("Task processed:", task)  if __name__ == '__main__':      tasks = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]      with Pool(processes=4) as pool:          results = pool.map(process_task, tasks)   `
+```python   
+from multiprocessing import Pool  
+
+def process_task(task):      # Do some work here   
+	print("Task processed:", task)  if __name__ == '__main__':      
+	tasks = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]      
+	with Pool(processes=4) as pool:          
+		results = pool.map(process_task, tasks)
+```
 
 ## Using a queue to communicate between processes
 
 When working with multiple processes, it is often necessary to pass data between them. One way to do this is by using a queue. A queue is a data structure that allows data to be inserted at one end and removed from the other end. In the context of multiprocessing, a queue can be used to pass data between processes.
 
-`   def producer(queue):      for i in range(10):          queue.put(i)  def consumer(queue):      while True:          item = queue.get()          print(item)  queue = multiprocessing.Queue()  p1 = multiprocessing.Process(target=producer, args=(queue,))  p2 = multiprocessing.Process(target=consumer, args=(queue,))  p1.start()  p2.start()   `
+```python   
+def producer(queue):      
+	for i in range(10):          
+		queue.put(i)
+	  
+def consumer(queue):      
+	while True:          
+		item = queue.get()          
+		print(item)  
 
+queue = multiprocessing.Queue()  
+p1 = multiprocessing.Process(target=producer, args=(queue,))  
+p2 = multiprocessing.Process(target=consumer, args=(queue,))  
+p1.start()  
+p2.start()
+```
 ## Using a lock to synchronize access to shared resources
 
 When working with multiprocessing in python, locks can be used to synchronize access to shared resources among multiple processes. A lock is an object that acts as a semaphore, allowing only one process at a time to execute a critical section of code. The lock is released when the process finishes executing the critical section.
