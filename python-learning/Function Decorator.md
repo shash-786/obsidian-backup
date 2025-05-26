@@ -39,9 +39,9 @@ def repeat_decorator(times):
 	def decorator(func):  
 		def wrapper(name):  
 			for _ in range(times):  
-			print("Before the function call")  
-			result = func(name)  
-			print("After the function call")  
+				print("Before the function call")  
+				result = func(name)  
+				print("After the function call")  
 			return result  
 	return wrapper  
 return decorator  
