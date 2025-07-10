@@ -1,5 +1,6 @@
-*Command is a behavioral design pattern that turns a request into a stand-alone object that contains all information about the request
+*[Command](https://gameprogrammingpatterns.com/command.html) is a behavioral design pattern that turns a request into a stand-alone object that contains all information about the request
 
+Link
 Consider a PlayStation Controller which has 4 buttons x,square,circle,triangle.
 Each of this button is assigned to a particular function in the game. Now to assign function to the button we can do 2 things.
 
