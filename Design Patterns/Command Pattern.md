@@ -1,4 +1,4 @@
-*[Command](https://gameprogrammingpatterns.com/command.html) is a behavioral design pattern that turns a request into a stand-alone object that contains all information about the request
+[Command](https://gameprogrammingpatterns.com/command.html) is a behavioral design pattern that turns a request into a stand-alone object that contains all information about the request
 
 Link
 Consider a PlayStation Controller which has 4 buttons x,square,circle,triangle.
@@ -160,3 +160,6 @@ moved back to -2,-2
 moved back to -3,0
 moved back to 0,-1
 ```
+
+FUN FACT --> Redo may not be common in games, but re-play is. A naive implementation would record the entire game state at each frame so it can be replayed, but that would use too much memory.
+Instead, many games record the set of commands every entity performed each frame. To replay the game, the engine just runs the normal game simulation, executing the pre-recorded commands
