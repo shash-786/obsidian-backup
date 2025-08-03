@@ -35,3 +35,12 @@ int j = ri + 2;
 //can be written as
 int j = *cpi + 2;
 ```
+
+### RValue
+**Rvalue** Something that is not a lvalue
+The 2 kinds of rvalues are
+
+`xvalue` - which occupy storage
+`prvalue` - which don't occupy any storage
+
+```
