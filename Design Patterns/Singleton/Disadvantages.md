@@ -18,20 +18,20 @@ processor.processData(); // You don't see any Logger being passed here
 	```
   In this `DataProcessor` example, you don't see `Logger` in its constructor or `processData`'s parameters. The `DataProcessor` just _reaches out_ and grabs the global `Logger` instance. The dependency on `Logger` is **hidden** inside the `processData` method's implementation.
 
-  Why is hiding dependencies bad?
-	  - **Hard to Understand:** When you look at `DataProcessor`'s definition, you don't immediately know all the things it relies on. You have to read through its entire code to find all the hidden global calls. It's like a mystery.
+  #### Why is hiding dependencies bad?
+- **Hard to Understand:** When you look at `DataProcessor`'s definition, you don't immediately know all the things it relies on. You have to read through its entire code to find all the hidden global calls. It's like a mystery.
     
 - **Hard to Test:** This is the biggest problem.
     
     - If you want to test `DataProcessor::processData()` in isolation, you can't easily tell it to use a "fake" logger (a mock) that just records messages instead of writing to a file.
     - Since `DataProcessor` always uses the _real_ global `Logger`, your tests might actually write to a file, or one test's logging might interfere with another test. This makes tests unreliable.
-     - **Less Flexible:** If you later decide you want `DataProcessor` to log to a different place (e.g., a database instead of a file), or you want different `DataProcessor` objects to log to different places, you're stuck. You can't easily "inject" a different logging mechanism because the dependency is hardcoded to the global `Logger::getInstance()`.
+    - **Less Flexible:** If you later decide you want `DataProcessor` to log to a different place (e.g., a database instead of a file), or you want different `DataProcessor` objects to log to different places, you're stuck. You can't easily "inject" a different logging mechanism because the dependency is hard-coded to the global `Logger::getInstance()`.
 
-2. They violate the [single responsibility principle](https://en.wikipedia.org/wiki/Single_responsibility_principle): by virtue of the fact that they control their own creation and lifecycle.
+2. They violate the [single responsibility principle](https://en.wikipedia.org/wiki/Single_responsibility_principle): by virtue of the fact that they control their own creation and life-cycle.
 
 
 3. Tight Coupling & Difficulty in Faking
-	Tight Coupling: This means your code becomes rigidly dependent on the specific, concrete implementation of the singleton. Instead of a class receiving its dependencies (like a Logger) through its constructor or method parameters (which allows for flexibility), it directly reaches out and calls `Logger::getInstance()`. This hardwires the connection.
+	Tight Coupling: This means your code becomes rigidly dependent on the specific, concrete implementation of the singleton. Instead of a class receiving its dependencies (like a Logger) through its constructor or method parameters (which allows for flexibility), it directly reaches out and calls `Logger::getInstance()`. This hard wires the connection.
 	
 	Difficulty in Faking/Mocking: Because of this tight coupling, you can't easily "fake out" or "mock" the singleton during unit tests. You can't tell your code, "For this test, use a special logger that just counts messages instead of writing to a file." The code is stuck using the real global instance. This makes it hard to isolate the code you're testing from the singleton's behavior.
 
