@@ -46,4 +46,4 @@ class bike_factory: public Factory {
 };
 ```
 
-Without the factory method the 
+

@@ -1,0 +1,1 @@
+RAII, or ==Resource Acquisition Is Initialization==, is a programming idiom where a resource (like memory, a file handle, or a mutex) is managed by binding it to the lifetime of an object. The resource is acquired in the object's constructor and released in its destructor, ensuring automatic management and preventing leaks, even in the face of exceptions. This
