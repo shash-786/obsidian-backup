@@ -2,6 +2,7 @@
 
 If your application is constructing and destroying lots of objects repetitively and this causes performance problems in the application. The problems may be due to the fact that creating the instance of the clauses from the scratch is expensive or repetitive construction and destruction is causing the heap to fragment. So to avoid these issues, an application can store the instances of the clause inside a pool. When it needs an instance, it will request the object from the pool and use it once it is done with that instance, it will be returned to the pool and can be reused later. 
 
+[Code](https://github.com/shash-786/Learning/tree/main/design-patterns/Object%20Pool)
 ```cpp
 // GameObjectPool.h
 #include "GameObject.h"
