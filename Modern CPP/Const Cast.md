@@ -1,6 +1,6 @@
 ### Const Cast
 
-
+1) The expression `const_cast< T >(v)` can be used to change the const and volatile qualifiers of pointers and references, Where T must be a pointer, reference, or a pointer-to-member type.
 
 ```cpp
 #include <iostream>
@@ -20,6 +20,7 @@ struct type
  
 int main()
 {
+    // WHEN ACTUAL REFERRED OBJECT IS NOT CONST
     int i = 3;                 // i is not declared const
     const int& rci = i;
     const_cast<int&>(rci) = 4; // OK: modifies i
@@ -34,6 +35,8 @@ int main()
     t.f(4);
     std::cout << "type::i = " << t.i << '\n'; 
     
+    
+    // WHEN REFERRED OBJECT IS CONST LEADS TO UNDEFINED BEHAVIOR
     const int j = 3; // j is declared const
     [[maybe_unused]]
     int* pj = const_cast<int*>(&j);
@@ -49,4 +52,21 @@ int main()
 i = 4
 i = 5
 type::i = 4
+```
+
+2) When we need to call some 3'rd party library where it is taking variable/object as non-const but not changing that.
+
+```cpp
+#include <iostream> 
+
+void thirdPartyLibrary(int* x) {
+	int k = 10;
+	cout << k+*(x);
+}
+
+int main() {
+	const int x = 20;
+	const int *px = &x;
+	thirdPartyLibrary(const_cast<int*>(px));
+}
 ```
