@@ -3,7 +3,7 @@ For example: For `init` there needs to be no repository present in the current d
 
 Similarly for `add` we will perform a few checks
 
-#### 1) `RUN_SETUP`
+#### `RUN_SETUP`
 
 This will start searching upwards from the current directory and keep going until it's constructed a path from the current working directory to the directory where `.git` is present. 
 
@@ -51,3 +51,10 @@ Prefix finding process
 	inside_git_dir = !strncmp(cwd + offset, ".git/", 5);
 	return cwd + offset;
 ```
+
+Also there is a check being done which is for `NOT_BARE` what this basically means is there is a term called bare repository whose only purpose is storing the `.git` folder
+
+Why??
+Bare repositories are typically used as central, remote repositories on servers (like GitHub, GitLab, or your own server) where multiple developers can push and pull changes.
+
+A bare Git repository is a type of Git repository that does not contain a working directory. Since there's no working directory, it prevents accidental or unauthorized direct modifications to the project files on the server-side repository, ensuring a controlled collaboration workflow.
