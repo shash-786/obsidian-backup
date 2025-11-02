@@ -1,5 +1,7 @@
 ### Git Add Algorithm
 
+##### High level view of the ADD algorithm in the git
+
 ```c 
 int cmd_add(int argc, const char **argv, const char *prefix)
 ```
