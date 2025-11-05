@@ -170,9 +170,9 @@ We append a whole tree-entry now like
 
 	if (dryrun)
 		hash_sha1_file(buffer, offset, tree_type, it->sha1);
-	else
-		
-(buffer, offset, tree_type, it->sha1);
+	else	
+		write_sha1_file(buffer, offset, tree_type, it->sha1);
+	
 	free(buffer);
 	it->entry_count = i;
 #if DEBUG

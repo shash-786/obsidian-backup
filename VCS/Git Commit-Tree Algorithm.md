@@ -74,11 +74,63 @@ static void add_buffer(char **bufp, unsigned int *sizep, const char *fmt, ...)
 	size = *sizep;
 	newsize = size + len + 1;
 	alloc = (size + 32767) & ~32767; // <-- ? ? ? What is this 
+	
+/*
+
+Also why is the address of the original pointer buffer passed?
+so what happens is if you pass just the pointer you are essentially 
+passing a copy of the pointer 
+
+meaning let's say 
+in the caller function
+
+buffer is at 0x123 and it points to 0xFFF
+if you pass by value then func_buffer will be at 0x456 and it will still be pointer to 0XFFF
+
+In the add_buffer `realloc` might move the entire block of memory from `0xFFF` to a new, larger location, say `0xABC`. If you only passes `char *buf`, the function would update its local copy to point to `0xABC`. The caller's `buffer` would still be pointing at `0xFFF`, which is now invalid (freed) memory
+
+That's why we pass the buffer as reference so that any changes to the size of the func_buffer should be reflected in the original buffer 
+
+*/
 ```
 
-This above line `(size + 32767) & 32767`. This is a fast, bitwise trick to round the current size up to the nearest 32KB boundary. It calculates the buffer's current allocated capacity. 
+This above line `(size + 32767) & 32767`. This is a fast, bit-wise trick to round the current size up to the nearest 32KB boundary. It calculates the buffer's current allocated capacity.
 
-Let's understand with a simple example
+Let's understand with a simple example. Let's assume instead of 32kb boundary we have only 32 bytes.
+
+so expression will be `alloc = (size + 31) & ~31`
+31  = 0001 1111
+~31 = 1110 0000
+
+
+```
+### Suppose our size is 40
+
+alloc = (40 + 31)  & 1110 0000
+alloc = 71 & 1110 0000
+alloc = 0100 0111 & 1110 0000
+
+0100 0111
+1110 0000
+---------
+0100 0000
+
+alloc = 0100 0000 (64)
+
+So we have successfully rounded up (it can be done using the division operator as well but this is faster)
+
+### Suppose our size is 32
+
+alloc = (32 + 31) & 1110 0000
+alloc = 63 & 1110 0000
+alloc = 0011 1111 & 1110 0000
+alloc = 0010 0000 (32)
+
+No rounding required perfect fit
+
+```
+
+
 
 ```c
 	buf = *bufp;
