@@ -6,7 +6,7 @@ All that is left is to create a commit, and for that we use this `commit_tree` f
 
 `git commit-tree <tree> [(-p <parent>)..]`
 
-We supply 2 things to this
+We supply 3 things to this
 1) Parent Commit (if any)
 2) SHA1 hash of the in-memory tree we just created
 3) The commit message (**optional**)
