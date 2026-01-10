@@ -8,7 +8,7 @@ An overridable method is provided that returns instance of a class. This method 
 ```cpp
 class vehicle {
 	public:
-	    virtual void printVehicle() = 0; // Abstract method
+	    virtual void printVehicle() = 0 ; // Abstract method
 };
 
 class car : public vehicle {

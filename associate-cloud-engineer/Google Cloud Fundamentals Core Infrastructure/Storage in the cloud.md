@@ -16,7 +16,7 @@ Google Cloud has five core storage product solution: Cloud Storage, Cloud SQL, S
 2)  suited for applications that require a SQL relational database management system with joins and secondary indexes, built-in high availability, strong global consistency, and high numbers of input and output operations per second.
 
 #### Firestore
-1)  Firestore is a flexible, horizontally scalable, NoSQL cloud database for mobile, web, and server development.
+1) Firestore is a flexible, horizontally scalable, NoSQL cloud database for mobile, web, and server development.
 2) With Firestore, data is stored in documents and then organized into collections.
 3) Documents can contain complex nested objects in addition to sub-collections.
 4) Each document contains a set of key-value pairs.
