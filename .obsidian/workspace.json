@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "b2cb3666e645486f",
+        "id": "979b3e2458be6044",
         "type": "tabs",
         "children": [
           {
-            "id": "41d5f88d44e781e3",
+            "id": "5e6abe545ded822b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Database Internals/Chapter 1/B-Tree.md",
+                "file": "Database Internals/Chapter 1/Architecture.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "B-Tree"
+              "title": "Architecture"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Database Internals/Chapter 1/B-Tree.md",
+                "file": "Database Internals/Chapter 1/Architecture.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for B-Tree"
+              "title": "Backlinks for Architecture"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Database Internals/Chapter 1/B-Tree.md",
+                "file": "Database Internals/Chapter 1/Architecture.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from B-Tree"
+              "title": "Outgoing links from Architecture"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Database Internals/Chapter 1/B-Tree.md",
+                "file": "Database Internals/Chapter 1/Architecture.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of B-Tree"
+              "title": "Outline of Architecture"
             }
           },
           {
@@ -195,14 +195,15 @@
       "pseudo-mica:Change vibrancy": false
     }
   },
-  "active": "41d5f88d44e781e3",
+  "active": "5e6abe545ded822b",
   "lastOpenFiles": [
+    "Database Internals/Chapter 1/B-Tree.md",
+    "Database Internals/Chapter 1/Architecture.md",
+    "Database Internals/Chapter 1/DB Normalization.md",
     "Database Internals/Images/DBMS_Architecture.png",
     "Database Internals/Images/Disk_structure.png",
-    "Database Internals/Chapter 1/B-Tree.md",
     "Database Internals/Images/M-Way-Search-Tree.png",
     "Database Internals/Images/Multi-level-Index.png",
-    "Database Internals/Chapter 1/Architecture.md",
     "Database Internals/Chapter 1",
     "Database Internals/Images",
     "Pasted image 20260406123108.png",

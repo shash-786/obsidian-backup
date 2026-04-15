@@ -1,4 +1,3 @@
-
 ### DBMS taxonomy
 
 **OLTP** (Online Transaction Processing Database)
@@ -23,7 +22,7 @@ In the same dataset suppose we want to do analysis on the  *AccountCreationTime*
 where the **x 2** could be RLE (run length encoding)
 
 ### DBMS Architecture
-![[DBMS_Architecture.png]]
+![[DBMS_Architecture.png|394]]
 
 ###### Transaction Manager
 It also schedules the transactions. Basically will make sure the connection requests see a "consistent view" of the database and also that when these transactions are complete the DB is not inconsistent. 
@@ -42,4 +41,31 @@ Maintains the operation logs and restores the system in case of a crash.
 
 
 ### Data Files and Index Files
+
+#### **Data Files** 
+Data files are essentially the data records. It contains the actual rows of the table.
+Types of Data files:
+	1) IOT (index organised tables) **(Clustered index read below)**
+	2) HOT (heap organised tables) **(Just append records (require additional indexing))**
+	3) HOT (hash organised tables) **records are stored in buckers and hash value of key determines which bucket a record belongs to**
+
+#### **Index File** 
+
+##### What is an Index? 
+An index is an auxiliary data structure that allows to efficiently locate records without scanning the entire table on every access. Indexes are built using a subset of fields identifying the record.
+
+Index file is an separate structure built using B+ trees. It may or may not contain the actual records but it for sure contains keys. 
+
+Primary Index is index built on primary key or set of keys identified as primary. All other indexes are called secondary. Secondary index can point to the data record or the primary key.
+
+*Non-clustered Index* : Basically think of it as B+ Tree based on a primary key (UID) with the leaf storing the pointer to the actual record or list of records to the data file
+
+*Clustered Index* : The only distinction here is the leaf node will contain the actual record itself. In this case **data file = index file**
+
+
+###### Primary index as Redirection 
+Updates as efficient in terms of actual data pointers being updated. Since the Primary index would be `primary key -> pointer` and all other secondary indexes will only reference the primary key, the pointer is only updated at one location. But this comes at the cost of another disk seek
+
+###### No Indirection
+The additional disk seek is not needed but there during updates if there are multiple indexes then the pointer needs to be updated on all the indexes. So read efficient but not update efficient.
 
